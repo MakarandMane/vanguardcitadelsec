@@ -1,0 +1,122 @@
+{
+  "project_name": "Vanguard Citadel Sec Landing Page",
+  "theme": "light",
+  "archetype": "4 (Swiss & High-Contrast) - Corporate/Enterprise Variant",
+  "colors": {
+    "primary": "#0A2540",
+    "primary_hover": "#103960",
+    "secondary": "#8A94A6",
+    "background": "#FFFFFF",
+    "surface": "#F8FAFC",
+    "surface_secondary": "#F1F5F9",
+    "text_main": "#0F172A",
+    "text_muted": "#475569",
+    "text_inverse": "#FFFFFF",
+    "border": "#E2E8F0"
+  },
+  "typography": {
+    "heading_font": "Manrope",
+    "body_font": "IBM Plex Sans",
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-extrabold text-slate-900",
+      "h2": "text-3xl sm:text-4xl tracking-tight font-bold text-slate-900",
+      "h3": "text-xl sm:text-2xl font-semibold text-slate-800",
+      "h4": "text-lg font-medium text-slate-800",
+      "body": "text-base leading-relaxed text-slate-600",
+      "label": "text-xs tracking-[0.2em] uppercase font-semibold text-slate-500"
+    }
+  },
+  "spacing_and_layout": {
+    "section_padding": "py-20 lg:py-32",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "card_padding": "p-6 sm:p-8",
+    "gap": "gap-8 lg:gap-12",
+    "border_radius": {
+      "card": "rounded-xl",
+      "button": "rounded-md",
+      "image": "rounded-2xl"
+    }
+  },
+  "components": {
+    "navigation": {
+      "style": "Glassmorphism header: `fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50`. Include a text logo 'Vanguard Citadel Sec' with a 'Shield' icon from lucide-react. Right side: standard nav links mapping to anchors (#about, #services, #compliance) and a primary CTA 'Contact Us' mapping to (#contact).",
+      "data_testid": "main-navigation"
+    },
+    "hero": {
+      "style": "Minimalist corporate hero. Two-column layout on desktop. Left: H1 'Securing Your Digital Frontier', subtitle, and dual CTAs. Right: `hero_shield_abstract` image inside a subtle rounded container or floating. Very clean, high contrast.",
+      "data_testid": "hero-section"
+    },
+    "about_leaders": {
+      "style": "Section with a soft surface background (`bg-slate-50`). Present the firm as a premier cybersecurity consulting body. Dedicate a stylized two-column 'bento' block or cards for the 2 leaders: Priyanka Joshi & Abhijeet Kulkarni. Use `about_corporate_office` image as an atmospheric visual here.",
+      "data_testid": "about-section"
+    },
+    "services": {
+      "style": "Grid layout `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8`. For 10 items, you could have a prominent leading item spanning 2 columns, or just a uniform grid. Use simple border cards `border border-slate-200 bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300`. Deep Navy blue icon accents. 10 Services total.",
+      "content": [
+        {"name": "Cloud Security", "icon": "Cloud"},
+        {"name": "Mobile App Security", "icon": "Smartphone"},
+        {"name": "Web App Security", "icon": "Monitor"},
+        {"name": "Network Security", "icon": "Network"},
+        {"name": "IT Governance Audits", "icon": "FileCheck"},
+        {"name": "IoT Security", "icon": "Cpu"},
+        {"name": "SOC as a Service", "icon": "ShieldAlert"},
+        {"name": "VAPT", "icon": "Search"},
+        {"name": "Threat Intelligence", "icon": "Eye"},
+        {"name": "Application Security Training", "icon": "BookOpen"}
+      ],
+      "data_testid": "services-section"
+    },
+    "compliance": {
+      "style": "Use the `bg_network_texture` as a very subtle, low-opacity background (`opacity-20` on absolute inset div) over a Navy Blue background (`bg-[#0A2540]`). White text. Display standard compliance badges or text blocks in a grid.",
+      "content": ["RBI Guidelines", "DPDP Act", "ISO 27001", "PCI-DSS", "GDPR", "HIPAA"],
+      "data_testid": "compliance-section"
+    },
+    "contact": {
+      "style": "Clean white section. Left: Trust stats (Years of Experience, Security Assessments, Happy Clients - derived from Varutra inspiration) or Why Choose Us content. Right: Contact Form using customized Shadcn UI elements (Input, Textarea, Button).",
+      "form_fields": ["Name", "Email", "Phone", "Company", "Message"],
+      "data_testid": "contact-section"
+    },
+    "footer": {
+      "style": "Simple, solid dark footer matching primary brand color. Include brand name, copyright, and standard links.",
+      "data_testid": "footer"
+    }
+  },
+  "media": {
+    "images": [
+      {
+        "id": "hero_shield_abstract",
+        "url": "https://static.prod-images.emergentagent.com/jobs/8a4ab19d-7d9f-43e4-85d9-940945effca3/images/99a42a22ea2da69b57cb501ff78008fd5448a12a1f2ca7d3572e86100b027160.png",
+        "category": "hero",
+        "description": "Abstract 3D geometric shield in pristine white and metallic silver. Perfect for the hero section right-side."
+      },
+      {
+        "id": "about_corporate_office",
+        "url": "https://static.prod-images.emergentagent.com/jobs/8a4ab19d-7d9f-43e4-85d9-940945effca3/images/f9b99699a1449cef0fc032e867701bc7675ccae6faf82d0a56d6b27d45892835.png",
+        "category": "about",
+        "description": "Modern glass architecture. Use as an accent image in the about us / leaders section."
+      },
+      {
+        "id": "services_cloud_security",
+        "url": "https://static.prod-images.emergentagent.com/jobs/8a4ab19d-7d9f-43e4-85d9-940945effca3/images/51b11ad66b1af17d40e16b0066f27c81cc40bf3bc57077ba8ab74acc467136cd.png",
+        "category": "services",
+        "description": "Minimalist server racks and cloud nodes. Can be used adjacent to the services grid or inside a prominent service feature card."
+      },
+      {
+        "id": "bg_network_texture",
+        "url": "https://static.prod-images.emergentagent.com/jobs/8a4ab19d-7d9f-43e4-85d9-940945effca3/images/20bb1a6dd7af04b902f381c0ca2e943a6af86e0f225dab33f27f6c60dc5e9d91.png",
+        "category": "background",
+        "description": "Abstract network grid pattern. Use with low opacity as a background texture for the Compliance section over a deep navy blue background."
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install and use `lucide-react` for all icons.",
+    "Use Manrope for Headings and IBM Plex Sans for body text. Load via Google Fonts.",
+    "Implement smooth scrolling for single-page navigation links (Hero, About, Services, Compliance, Contact). Ensure html, body { scroll-behavior: smooth; } is applied.",
+    "Enforce strict contrast rules. Do not use generic Inter font.",
+    "All interactive elements and key sections MUST have the `data-testid` attribute as specified.",
+    "Do NOT use pure #000000 for text. Use #0F172A (slate-900) and other slate variables.",
+    "Construct the UI exclusively using Tailwind CSS on standard HTML elements unless complex functionality dictates Shadcn (like Contact form).",
+    "Keep the aesthetic heavily corporate, authoritative, using the requested Deep Navy Blue and Silver. Avoid all neon greens or purple gradients."
+  ]
+}
