@@ -6,13 +6,11 @@ const ABOUT_IMG =
 const LEADERS = [
   {
     name: "Priyanka Joshi",
-    role: "Co-Founder & Director",
     bio: "Drives strategy, client advisory and security consulting practice — partnering with CISOs and CIOs to build resilient security programs.",
     initials: "PJ",
   },
   {
     name: "Abhijeet Kulkarni",
-    role: "Co-Founder & Director",
     bio: "Leads technical delivery across VAPT, Cloud Security and SOC operations — with deep expertise in offensive and defensive security tactics.",
     initials: "AK",
   },
@@ -123,9 +121,6 @@ export default function About() {
                   </div>
                   <div>
                     <p className="font-heading font-semibold text-slate-900">{l.name}</p>
-                    <p className="text-xs tracking-wider uppercase text-[#0A2540] font-semibold mt-0.5">
-                      {l.role}
-                    </p>
                     <p className="mt-2 text-sm text-slate-600 leading-relaxed">{l.bio}</p>
                   </div>
                 </div>
