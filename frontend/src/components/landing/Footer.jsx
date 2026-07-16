@@ -9,11 +9,10 @@ const FOOTER_NAV = [
 
 const SERVICES_SHORT = [
   "Cloud Security",
-  "Mobile App Security",
-  "Web App Security",
   "Network Security",
-  "VAPT",
+  "Regulatory Compliance",
   "SOC as a Service",
+  "Threat Intelligence",
 ];
 
 const handle = (href) => {
@@ -59,7 +58,7 @@ export default function Footer() {
                 <Twitter className="h-4 w-4" />
               </a>
               <a
-                href="mailto:info@vanguardcitadelsec.com"
+                href="mailto:hello@vanguardcitadelsec.com"
                 aria-label="Email"
                 data-testid="footer-social-email"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/10 hover:bg-white/10 transition-colors"

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Send, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,9 +10,9 @@ import { Button } from "@/components/ui/button";
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const TRUST_STATS = [
-  { k: "10+", v: "Specialized Services" },
+  { k: "5", v: "Specialized Services" },
   { k: "24×7", v: "Managed SOC" },
-  { k: "PAN-India", v: "Coverage" },
+  { k: "Pan-Global", v: "Coverage" },
   { k: "B2B", v: "Enterprise Focus" },
 ];
 
@@ -99,9 +99,12 @@ export default function Contact() {
               </span>
               <div>
                 <p className="text-xs tracking-wider uppercase text-slate-500 font-semibold">Email</p>
-                <p className="font-heading font-semibold text-slate-900">
-                  info@vanguardcitadelsec.com
-                </p>
+                <a
+                  href="mailto:hello@vanguardcitadelsec.com"
+                  className="font-heading font-semibold text-slate-900 hover:text-[#0A2540] transition-colors"
+                >
+                  hello@vanguardcitadelsec.com
+                </a>
               </div>
             </div>
             <div
@@ -113,19 +116,21 @@ export default function Contact() {
               </span>
               <div>
                 <p className="text-xs tracking-wider uppercase text-slate-500 font-semibold">Phone</p>
-                <p className="font-heading font-semibold text-slate-900">+91 — to be updated</p>
-              </div>
-            </div>
-            <div
-              data-testid="contact-info-address"
-              className="flex items-start gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4"
-            >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#0A2540] text-white">
-                <MapPin className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-xs tracking-wider uppercase text-slate-500 font-semibold">Address</p>
-                <p className="font-heading font-semibold text-slate-900">India — Address to be updated</p>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 mt-0.5">
+                  <a
+                    href="tel:+919637420583"
+                    className="font-heading font-semibold text-slate-900 hover:text-[#0A2540] transition-colors"
+                  >
+                    +91 96374 20583
+                  </a>
+                  <span className="hidden sm:inline text-slate-400">/</span>
+                  <a
+                    href="tel:+918788196840"
+                    className="font-heading font-semibold text-slate-900 hover:text-[#0A2540] transition-colors"
+                  >
+                    +91 87881 96840
+                  </a>
+                </div>
               </div>
             </div>
           </div>

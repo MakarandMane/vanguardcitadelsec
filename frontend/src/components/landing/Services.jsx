@@ -1,14 +1,9 @@
 import {
   Cloud,
-  Smartphone,
-  Monitor,
   Network,
-  FileCheck,
-  Cpu,
+  ScrollText,
   ShieldAlert,
-  Search,
   Eye,
-  BookOpen,
   ArrowUpRight,
 } from "lucide-react";
 
@@ -19,29 +14,14 @@ const SERVICES = [
     desc: "Security categorization of cloud resources, controls assessment, and network architecture review across AWS, Azure and GCP.",
   },
   {
-    icon: Smartphone,
-    name: "Mobile App Security",
-    desc: "Assess mobile application libraries, exposed APIs, cryptography and storage — aligned with OWASP MASVS and Top 10 risks.",
-  },
-  {
-    icon: Monitor,
-    name: "Web App Security",
-    desc: "Application mapping, client-side and server-side vulnerability discovery, and business-impact assessment of findings.",
-  },
-  {
     icon: Network,
     name: "Network Security",
     desc: "Assess network infrastructure posture, detect vulnerabilities and report real-world exploitation impact to leadership.",
   },
   {
-    icon: FileCheck,
-    name: "IT Governance Audits",
-    desc: "Risk management, resource management and strategic alignment audits mapped to business goals and regulatory needs.",
-  },
-  {
-    icon: Cpu,
-    name: "IoT Security",
-    desc: "End-to-end secure IoT product engagement across the IoT Security Life Cycle — firmware, device, cloud and privacy.",
+    icon: ScrollText,
+    name: "Regulatory Compliance",
+    desc: "End-to-end regulatory readiness — RBI, DPDP, ISO 27001, PCI-DSS, GDPR, HIPAA — with practical, auditable control implementation.",
   },
   {
     icon: ShieldAlert,
@@ -49,19 +29,9 @@ const SERVICES = [
     desc: "24×7 real-time monitoring operations combining people, process and technology with measurable detection metrics.",
   },
   {
-    icon: Search,
-    name: "VAPT",
-    desc: "Vulnerability Assessment and Penetration Testing across applications, networks and infrastructure with exploit validation.",
-  },
-  {
     icon: Eye,
     name: "Threat Intelligence",
     desc: "Curated, actionable intelligence on adversaries, leaked credentials and brand exposure on surface, deep and dark web.",
-  },
-  {
-    icon: BookOpen,
-    name: "Application Security Training",
-    desc: "Hands-on secure-coding, ethical hacking and red-team training programs delivered by practising consultants.",
   },
 ];
 
@@ -84,7 +54,7 @@ export default function Services() {
             data-testid="services-title"
             className="mt-3 font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900"
           >
-            Ten focused practices.{" "}
+            Five focused practices.{" "}
             <span className="text-[#0A2540]">One trusted partner.</span>
           </h2>
           <p
