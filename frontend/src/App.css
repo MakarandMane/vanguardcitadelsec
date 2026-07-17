@@ -2,31 +2,27 @@
 
 .App {
     min-height: 100vh;
-    background-color: #ffffff;
+    background-color: #050B15;
+    color: #E2E8F0;
 }
 
-/* Fade-in-up keyframe for hero/section entrances */
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(16px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-up {
-    animation: fadeUp 0.7s ease-out both;
-}
+.animate-fade-up { animation: fadeUp 0.7s ease-out both; }
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
 
-.animate-delay-100 {
-    animation-delay: 0.1s;
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
 }
-.animate-delay-200 {
-    animation-delay: 0.2s;
+.pulse-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+
+@keyframes barGrow {
+    from { width: 0%; }
 }
-.animate-delay-300 {
-    animation-delay: 0.3s;
-}
+.bar-animate { animation: barGrow 1.2s ease-out both; }

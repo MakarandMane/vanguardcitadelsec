@@ -1,38 +1,33 @@
-import { Landmark, ScrollText, BadgeCheck, CreditCard, Globe, HeartPulse } from "lucide-react";
-
-const NETWORK_BG =
-  "https://static.prod-images.emergentagent.com/jobs/8a4ab19d-7d9f-43e4-85d9-940945effca3/images/20bb1a6dd7af04b902f381c0ca2e943a6af86e0f225dab33f27f6c60dc5e9d91.png";
-
 const COMPLIANCE = [
   {
-    icon: Landmark,
+    tag: "RBI",
     title: "RBI Guidelines",
-    desc: "Cyber security framework for banks, NBFCs, Payment Aggregators and Cooperative banks — including IT examination and master directions.",
+    desc: "Cyber security frameworks for banks, NBFCs, Payment Aggregators, Cooperative banks — including IT examination and master directions.",
   },
   {
-    icon: ScrollText,
-    title: "DPDP Act",
-    desc: "Digital Personal Data Protection Act readiness — consent, data principal rights, breach notification and DPO advisory.",
+    tag: "DPDP",
+    title: "DPDP Act 2023",
+    desc: "Digital Personal Data Protection Act readiness — consent, data principal rights, DPIA, breach notification and DPO advisory.",
   },
   {
-    icon: BadgeCheck,
-    title: "ISO 27001",
-    desc: "ISMS implementation, internal audits, risk assessment, Statement of Applicability and certification readiness.",
+    tag: "ISO 27001",
+    title: "ISO 27001:2022",
+    desc: "ISMS scoping, risk assessment, Annex A control implementation, internal audit and Stage 1 / Stage 2 certification support.",
   },
   {
-    icon: CreditCard,
-    title: "PCI-DSS",
-    desc: "Payment card environment hardening, scoping, segmentation, secure SDLC and continuous compliance maintenance.",
+    tag: "PCI-DSS",
+    title: "PCI-DSS v4.0",
+    desc: "Scope reduction, control implementation, ASV scanning, segmentation testing and QSA-ready evidence preparation.",
   },
   {
-    icon: Globe,
+    tag: "GDPR",
     title: "GDPR",
-    desc: "EU data protection compliance — DPIA, cross-border data flows, record of processing and lawful basis advisory.",
+    desc: "Data mapping, lawful basis assessment, ROPA, DPIA and EU representative advisory for cross-border processing.",
   },
   {
-    icon: HeartPulse,
-    title: "HIPAA",
-    desc: "Safeguards for protected health information — administrative, physical and technical control assessments.",
+    tag: "HIPAA",
+    title: "HIPAA / HITRUST",
+    desc: "Privacy and security rule implementation for healthcare providers, payers and digital health businesses.",
   },
 ];
 
@@ -41,61 +36,53 @@ export default function Compliance() {
     <section
       id="compliance"
       data-testid="compliance-section"
-      className="relative py-20 lg:py-32 bg-[#0A2540] text-white overflow-hidden"
+      className="relative py-20 lg:py-28 bg-[#050B15] border-t border-slate-900 overflow-hidden"
     >
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-grid-navy opacity-30"
-      />
-      <div
-        aria-hidden
-        style={{ backgroundImage: `url(${NETWORK_BG})` }}
-        className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-screen"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A2540] via-[#0A2540]/85 to-[#0A2540]" />
-
+      <div aria-hidden className="absolute inset-0 bg-radial-cyan-soft opacity-70" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <span
-            data-testid="compliance-eyebrow"
-            className="text-xs tracking-[0.2em] uppercase font-semibold text-slate-300"
-          >
-            Regulatory Compliance
-          </span>
-          <h2
-            data-testid="compliance-title"
-            className="mt-3 font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white"
-          >
-            Aligned with the regulations that matter to{" "}
-            <span className="text-slate-300">your industry.</span>
-          </h2>
-          <p
-            data-testid="compliance-subtitle"
-            className="mt-5 text-base sm:text-lg leading-relaxed text-slate-300"
-          >
-            Whether you operate in BFSI, healthcare, payments or SaaS, we help you
-            translate dense regulation into practical, auditable security controls
-            — without slowing your business down.
-          </p>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div className="max-w-3xl">
+            <span
+              data-testid="compliance-eyebrow"
+              className="text-xs tracking-[0.25em] uppercase font-semibold text-cyan-400"
+            >
+              Regulatory consulting
+            </span>
+            <h2
+              data-testid="compliance-title"
+              className="mt-4 font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]"
+            >
+              RBI, DPDP and every framework{" "}
+              <span className="text-cyan-400">that matters.</span>
+            </h2>
+            <p
+              data-testid="compliance-subtitle"
+              className="mt-5 text-base sm:text-lg leading-relaxed text-slate-400"
+            >
+              Whether you operate in BFSI, healthcare, payments or SaaS — we translate
+              dense regulation into practical, auditable controls without slowing your
+              business down.
+            </p>
+          </div>
         </div>
 
         <div
           data-testid="compliance-grid"
-          className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
         >
           {COMPLIANCE.map((c) => (
             <div
               key={c.title}
               data-testid={`compliance-card-${c.title.toLowerCase().replace(/\W+/g, "-")}`}
-              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:bg-white/10 hover:border-white/20 transition-colors"
+              className="card-dark rounded-xl p-6 transition-all"
             >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-white/10 text-white">
-                <c.icon className="h-5 w-5" />
+              <span className="inline-block rounded-md bg-cyan-400/10 border border-cyan-400/20 px-2.5 py-1 text-[11px] font-bold tracking-wider text-cyan-300">
+                {c.tag}
               </span>
-              <h3 className="mt-5 font-heading text-lg font-semibold text-white">
+              <h3 className="mt-4 font-heading text-lg font-semibold text-white">
                 {c.title}
               </h3>
-              <p className="mt-2 text-sm text-slate-300 leading-relaxed">{c.desc}</p>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">{c.desc}</p>
             </div>
           ))}
         </div>

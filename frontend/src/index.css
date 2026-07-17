@@ -13,13 +13,13 @@ body {
     font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #0F172A;
-    background-color: #FFFFFF;
+    color: #E2E8F0;
+    background-color: #050B15;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Manrope', system-ui, sans-serif;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
 }
 
 .font-heading {
@@ -30,47 +30,67 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
-/* Subtle grid background utility */
-.bg-grid-slate {
+/* Radial glow used for hero and CTA sections */
+.bg-radial-cyan {
+    background:
+        radial-gradient(1000px 500px at 15% -10%, rgba(34, 211, 238, 0.15), transparent 60%),
+        radial-gradient(800px 400px at 90% 110%, rgba(20, 184, 197, 0.12), transparent 60%),
+        #050B15;
+}
+
+.bg-radial-cyan-soft {
+    background:
+        radial-gradient(700px 320px at 100% 0%, rgba(34, 211, 238, 0.10), transparent 55%),
+        #050B15;
+}
+
+/* Subtle grid overlay tuned for dark bg */
+.bg-grid-dark {
     background-image:
-        linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+        linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
     background-size: 56px 56px;
 }
 
-.bg-grid-navy {
-    background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 56px 56px;
+/* Glowing ring for feature cards */
+.card-dark {
+    background-color: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.10);
+    backdrop-filter: blur(6px);
+}
+.card-dark:hover {
+    border-color: rgba(34, 211, 238, 0.35);
+    box-shadow:
+        0 0 0 1px rgba(34, 211, 238, 0.10),
+        0 20px 40px -20px rgba(34, 211, 238, 0.20);
 }
 
 ::selection {
-    background-color: #0A2540;
-    color: #ffffff;
+    background-color: #22D3EE;
+    color: #050B15;
 }
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 222 47% 11%;
-        --card: 0 0% 100%;
-        --card-foreground: 222 47% 11%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 222 47% 11%;
-        --primary: 213 73% 15%;
-        --primary-foreground: 0 0% 100%;
-        --secondary: 210 40% 96%;
-        --secondary-foreground: 222 47% 11%;
-        --muted: 210 40% 96%;
-        --muted-foreground: 215 16% 47%;
-        --accent: 210 40% 96%;
-        --accent-foreground: 222 47% 11%;
+        --background: 216 60% 6%;
+        --foreground: 210 40% 96%;
+        --card: 217 33% 12%;
+        --card-foreground: 210 40% 96%;
+        --popover: 217 33% 12%;
+        --popover-foreground: 210 40% 96%;
+        --primary: 187 92% 57%;
+        --primary-foreground: 216 60% 6%;
+        --secondary: 217 33% 17%;
+        --secondary-foreground: 210 40% 96%;
+        --muted: 217 33% 17%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 217 33% 17%;
+        --accent-foreground: 210 40% 96%;
         --destructive: 0 84% 60%;
         --destructive-foreground: 0 0% 98%;
-        --border: 214 32% 91%;
-        --input: 214 32% 91%;
-        --ring: 213 73% 15%;
+        --border: 215 25% 22%;
+        --input: 215 25% 22%;
+        --ring: 187 92% 57%;
         --radius: 0.5rem;
     }
 }

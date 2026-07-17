@@ -1,7 +1,4 @@
-import { Target, Compass, Award, UserSquare2 } from "lucide-react";
-
-const ABOUT_IMG =
-  "https://static.prod-images.emergentagent.com/jobs/8a4ab19d-7d9f-43e4-85d9-940945effca3/images/f9b99699a1449cef0fc032e867701bc7675ccae6faf82d0a56d6b27d45892835.png";
+import { Swords, FileBarChart, Layers, ShieldCheck } from "lucide-react";
 
 const LEADERS = [
   {
@@ -11,26 +8,31 @@ const LEADERS = [
   },
   {
     name: "Abhijeet Kulkarni",
-    bio: "Leads technical delivery across VAPT, Cloud Security and SOC operations — with deep expertise in offensive and defensive security tactics.",
+    bio: "Leads technical delivery across Cloud Security, SOC operations and offensive testing — with deep expertise in defensive engineering.",
     initials: "AK",
   },
 ];
 
 const PILLARS = [
   {
-    icon: Target,
-    title: "Purpose-Built Engagements",
-    desc: "Every assessment is tailored to your threat model, regulatory landscape, and business priorities.",
+    icon: Swords,
+    title: "Offensive-first DNA",
+    desc: "Our consultants are practitioners who break things for a living — so your business does not have to.",
   },
   {
-    icon: Compass,
-    title: "Offensive + Defensive",
-    desc: "We combine adversary-simulation with defense-in-depth advisory to harden your attack surface.",
+    icon: FileBarChart,
+    title: "Outcome-driven reports",
+    desc: "Risk-rated, repro-ready, evidence-backed reports an engineer can act on and an executive can defend.",
   },
   {
-    icon: Award,
-    title: "Outcomes-First Reporting",
-    desc: "Executive and technical reports designed to drive remediation, board reviews, and audits.",
+    icon: Layers,
+    title: "Engineered for scale",
+    desc: "Proven across hyperscalers, regulated industries and complex hybrid estates spanning multiple geographies.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Privacy by design",
+    desc: "DPDP and GDPR specialists embedded with our offensive teams — security and privacy advised in lock-step.",
   },
 ];
 
@@ -39,90 +41,72 @@ export default function About() {
     <section
       id="about"
       data-testid="about-section"
-      className="relative py-20 lg:py-32 bg-slate-50 border-y border-slate-200/70"
+      className="relative py-20 lg:py-28 bg-[#050B15] border-t border-slate-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-5">
             <span
               data-testid="about-eyebrow"
-              className="text-xs tracking-[0.2em] uppercase font-semibold text-slate-500"
+              className="text-xs tracking-[0.25em] uppercase font-semibold text-cyan-400"
             >
-              About Vanguard Citadel Sec
+              Why count on us
             </span>
             <h2
               data-testid="about-title"
-              className="mt-3 font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900"
+              className="mt-4 font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]"
             >
-              A premier cybersecurity consulting firm built for the modern enterprise.
+              A partner that operates like an{" "}
+              <span className="text-cyan-400">extension</span> of your security team.
             </h2>
             <p
               data-testid="about-paragraph-1"
-              className="mt-6 text-base sm:text-lg leading-relaxed text-slate-600"
+              className="mt-6 text-base sm:text-lg leading-relaxed text-slate-400"
             >
-              Vanguard Citadel Sec is an information security consulting practice
-              delivering specialized services to keep your business resilient. From
-              securing business-critical assets to defending against real-world cyber
-              attacks, our team works alongside yours to remediate high-impact risks
-              and elevate your security posture.
-            </p>
-            <p
-              data-testid="about-paragraph-2"
-              className="mt-4 text-base sm:text-lg leading-relaxed text-slate-600"
-            >
-              We help organizations align with regulatory expectations including RBI
-              guidelines, the DPDP Act, ISO 27001, PCI-DSS and global frameworks —
-              backed by hands-on engineering, not slideware.
+              Vanguard Citadel Sec blends deep technical practitioners with
+              regulatory specialists — so security and compliance move forward
+              together, not in parallel silos. From securing business-critical assets
+              to defending real-world attacks, we work alongside your team to remediate
+              risks with measurable impact.
             </p>
 
-            <div className="mt-10 grid sm:grid-cols-3 gap-6">
-              {PILLARS.map((p) => (
+            <div data-testid="about-leaders" className="mt-10 space-y-4">
+              <p className="text-xs tracking-[0.25em] uppercase font-semibold text-slate-500">
+                Led by industry practitioners
+              </p>
+              {LEADERS.map((l) => (
                 <div
-                  key={p.title}
-                  data-testid={`about-pillar-${p.title.toLowerCase().replace(/\W+/g, "-")}`}
-                  className="rounded-xl border border-slate-200 bg-white p-5 hover:shadow-md transition-shadow"
+                  key={l.name}
+                  data-testid={`leader-card-${l.name.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="flex items-start gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-5 hover:border-cyan-500/30 transition-colors"
                 >
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#0A2540] text-white">
-                    <p.icon className="h-5 w-5" />
-                  </span>
-                  <h3 className="mt-4 font-heading text-base font-semibold text-slate-900">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">{p.desc}</p>
+                  <div className="h-12 w-12 shrink-0 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/25 text-cyan-300 flex items-center justify-center font-heading font-bold text-base">
+                    {l.initials}
+                  </div>
+                  <div>
+                    <p className="font-heading font-semibold text-white">{l.name}</p>
+                    <p className="mt-2 text-sm text-slate-400 leading-relaxed">{l.bio}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="lg:col-span-5">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-md">
-              <img
-                src={ABOUT_IMG}
-                alt="Vanguard Citadel Sec corporate environment"
-                className="w-full h-72 lg:h-80 object-cover"
-                data-testid="about-image"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540]/40 via-transparent to-transparent" />
-            </div>
-
-            <div data-testid="about-leaders" className="mt-8 space-y-4">
-              <h3 className="font-heading text-lg font-semibold text-slate-900">
-                Led by industry practitioners
-              </h3>
-              {LEADERS.map((l) => (
+          <div className="lg:col-span-7">
+            <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
+              {PILLARS.map((p) => (
                 <div
-                  key={l.name}
-                  data-testid={`leader-card-${l.name.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-4 hover:border-slate-300 transition-colors"
+                  key={p.title}
+                  data-testid={`about-pillar-${p.title.toLowerCase().replace(/\W+/g, "-")}`}
+                  className="card-dark rounded-xl p-6 transition-all"
                 >
-                  <div className="relative h-14 w-14 shrink-0 rounded-lg bg-gradient-to-br from-[#0A2540] to-[#103960] text-white flex items-center justify-center font-heading font-bold text-lg shadow-sm">
-                    {l.initials}
-                    <UserSquare2 className="absolute -bottom-1 -right-1 h-4 w-4 text-slate-300 bg-white rounded-sm p-0.5" />
-                  </div>
-                  <div>
-                    <p className="font-heading font-semibold text-slate-900">{l.name}</p>
-                    <p className="mt-2 text-sm text-slate-600 leading-relaxed">{l.bio}</p>
-                  </div>
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400">
+                    <p.icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-5 font-heading text-lg font-semibold text-white">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-400 leading-relaxed">{p.desc}</p>
                 </div>
               ))}
             </div>
