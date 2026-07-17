@@ -41,27 +41,27 @@ export default function About() {
     <section
       id="about"
       data-testid="about-section"
-      className="relative py-20 lg:py-28 bg-[#050B15] border-t border-slate-900"
+      className="relative py-20 lg:py-28 bg-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
             <span
               data-testid="about-eyebrow"
-              className="text-xs tracking-[0.25em] uppercase font-semibold text-cyan-400"
+              className="text-xs tracking-[0.25em] uppercase font-semibold text-cyan-600"
             >
               Why count on us
             </span>
             <h2
               data-testid="about-title"
-              className="mt-4 font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]"
+              className="mt-4 font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]"
             >
               A partner that operates like an{" "}
-              <span className="text-cyan-400">extension</span> of your security team.
+              <span className="text-cyan-600">extension</span> of your security team.
             </h2>
             <p
               data-testid="about-paragraph-1"
-              className="mt-6 text-base sm:text-lg leading-relaxed text-slate-400"
+              className="mt-6 text-base sm:text-lg leading-relaxed text-slate-600"
             >
               Vanguard Citadel Sec blends deep technical practitioners with
               regulatory specialists — so security and compliance move forward
@@ -78,14 +78,14 @@ export default function About() {
                 <div
                   key={l.name}
                   data-testid={`leader-card-${l.name.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="flex items-start gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-5 hover:border-cyan-500/30 transition-colors"
+                  className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-5 hover:border-cyan-400 hover:shadow-md transition-all"
                 >
-                  <div className="h-12 w-12 shrink-0 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/25 text-cyan-300 flex items-center justify-center font-heading font-bold text-base">
+                  <div className="h-12 w-12 shrink-0 rounded-lg bg-cyan-50 border border-cyan-200 text-cyan-700 flex items-center justify-center font-heading font-bold text-base">
                     {l.initials}
                   </div>
                   <div>
-                    <p className="font-heading font-semibold text-white">{l.name}</p>
-                    <p className="mt-2 text-sm text-slate-400 leading-relaxed">{l.bio}</p>
+                    <p className="font-heading font-semibold text-slate-900">{l.name}</p>
+                    <p className="mt-2 text-sm text-slate-600 leading-relaxed">{l.bio}</p>
                   </div>
                 </div>
               ))}
@@ -98,15 +98,15 @@ export default function About() {
                 <div
                   key={p.title}
                   data-testid={`about-pillar-${p.title.toLowerCase().replace(/\W+/g, "-")}`}
-                  className="card-dark rounded-xl p-6 transition-all"
+                  className="rounded-xl border border-slate-200 bg-white p-6 hover:border-cyan-400 hover:shadow-lg transition-all"
                 >
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-50 border border-cyan-100 text-cyan-600">
                     <p.icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-5 font-heading text-lg font-semibold text-white">
+                  <h3 className="mt-5 font-heading text-lg font-semibold text-slate-900">
                     {p.title}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-400 leading-relaxed">{p.desc}</p>
+                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">{p.desc}</p>
                 </div>
               ))}
             </div>
