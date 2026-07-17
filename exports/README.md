@@ -2,6 +2,12 @@
 
 Two standalone versions of the landing page as pure HTML + Tailwind (CDN) + Google Fonts + lucide icons.
 
+## Live Previews
+
+1. Light theme — https://makarandmane.github.io/vanguardcitadelsec/exports/light-theme/
+2. Dark theme — https://makarandmane.github.io/vanguardcitadelsec/exports/dark-theme/
+3. Alternating theme (recommended) — https://makarandmane.github.io/vanguardcitadelsec/exports/alternating-theme/
+
 ## Structure
 ```
 exports/
