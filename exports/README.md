@@ -7,7 +7,9 @@ Two standalone versions of the landing page as pure HTML + Tailwind (CDN) + Goog
 exports/
 ├── light-theme/          # v1 — Corporate light theme (navy + silver)
 │   └── index.html
-└── dark-theme/           # v2 — Dark theme adapted from vanguard-secure.emergent.host (navy + cyan)
+├── dark-theme/           # v2 — Fully dark theme (navy + cyan)
+│   └── index.html
+└── alternating-theme/    # v3 — Alternating dark/light with cyan accent (current recommended)
     └── index.html
 ```
 
