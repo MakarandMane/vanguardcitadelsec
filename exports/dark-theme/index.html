@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanguard Citadel Sec — Information Security, Compliance & Managed SOC</title>
+  <meta name="description" content="Vanguard Citadel Sec delivers offensive security, cloud defence and regulatory consulting across RBI, DPDP, ISO 27001, PCI-DSS and GDPR." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #E2E8F0; background: #050B15; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Manrope', system-ui, sans-serif; letter-spacing: -0.015em; }
+    ::selection { background: #22D3EE; color: #050B15; }
+
+    .bg-radial-cyan {
+      background:
+        radial-gradient(1000px 500px at 15% -10%, rgba(34, 211, 238, 0.15), transparent 60%),
+        radial-gradient(800px 400px at 90% 110%, rgba(20, 184, 197, 0.12), transparent 60%),
+        #050B15;
+    }
+    .bg-radial-cyan-soft {
+      background:
+        radial-gradient(700px 320px at 100% 0%, rgba(34, 211, 238, 0.10), transparent 55%),
+        #050B15;
+    }
+    .bg-grid-dark {
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    .card-dark {
+      background-color: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.10);
+      backdrop-filter: blur(6px);
+      transition: all .3s ease;
+    }
+    .card-dark:hover {
+      border-color: rgba(34, 211, 238, 0.35);
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.10), 0 20px 40px -20px rgba(34, 211, 238, 0.20);
+    }
+    @keyframes fadeUp { from {opacity:0;transform:translateY(16px)} to {opacity:1;transform:translateY(0)} }
+    .animate-fade-up { animation: fadeUp .7s ease-out both; }
+    .animate-delay-200 { animation-delay: .2s; }
+    @keyframes pulseDot { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .pulse-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+    @keyframes barGrow { from { width: 0% } }
+    .bar-animate { animation: barGrow 1.2s ease-out both; }
+  </style>
+</head>
+<body class="text-slate-200 bg-[#050B15]">
+
+<!-- ========== NAV ========== -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#050B15]/40 backdrop-blur-md border-b border-transparent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-3 group">
+      <img src="https://customer-assets-m6fa6gv7.emergentagent.net/job_security-hub-151/artifacts/tc1fu0c7_logo.jpeg" alt="Vanguard Citadel Sec logo" class="h-10 w-10 rounded-full ring-1 ring-cyan-500/20 group-hover:ring-cyan-400/50 transition-all" />
+      <div class="flex flex-col leading-tight text-left">
+        <span class="font-extrabold tracking-tight text-white text-sm sm:text-base" style="font-family:'Manrope',sans-serif;">Vanguard<span class="text-cyan-400">Citadel</span>Sec</span>
+        <span class="text-[10px] tracking-[0.25em] uppercase text-slate-400 font-semibold">Information Security</span>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#about" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">About</a>
+      <a href="#services" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Services</a>
+      <a href="#compliance" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Compliance</a>
+      <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Contact</a>
+      <a href="#contact" class="inline-flex items-center rounded-md bg-cyan-400 px-4 py-2 text-sm font-bold text-[#050B15] hover:bg-cyan-300 transition-colors shadow-[0_0_25px_rgba(34,211,238,0.35)]">Talk to an Expert</a>
+    </nav>
+
+    <button id="mobileToggle" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md text-slate-200 hover:bg-white/5" aria-label="Toggle menu">
+      <i data-lucide="menu" class="h-5 w-5"></i>
+    </button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-slate-800 bg-[#050B15]/95 backdrop-blur-xl">
+    <div class="px-4 py-4 flex flex-col gap-2">
+      <a href="#about" class="text-left px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-white/5">About</a>
+      <a href="#services" class="text-left px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-white/5">Services</a>
+      <a href="#compliance" class="text-left px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-white/5">Compliance</a>
+      <a href="#contact" class="text-left px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-white/5">Contact</a>
+      <a href="#contact" class="mt-2 inline-flex items-center justify-center rounded-md bg-cyan-400 px-4 py-2 text-sm font-bold text-[#050B15]">Talk to an Expert</a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section id="home" class="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-radial-cyan overflow-hidden">
+  <div aria-hidden class="absolute inset-0 bg-grid-dark opacity-30" style="mask-image: radial-gradient(ellipse at top, black 35%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse at top, black 35%, transparent 80%);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="lg:col-span-7 animate-fade-up">
+      <div class="inline-flex items-center gap-2 rounded-full border border-cyan-500/25 bg-cyan-400/5 px-3 py-1.5 text-xs font-semibold text-cyan-300">
+        <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>
+        <span class="tracking-wide">CERT-In Aligned · ISO 27001 · CREST Ready</span>
+      </div>
+      <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.05]" style="font-family:'Manrope',sans-serif;">
+        Securing the digital <span class="text-cyan-400">perimeter</span> of the modern enterprise.
+      </h1>
+      <p class="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-300">
+        Vanguard Citadel Sec delivers offensive security, cloud defence and regulatory consulting across RBI, DPDP, ISO 27001, PCI-DSS and GDPR — engineered for regulated, high-risk industries.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-md bg-cyan-400 px-6 py-3 text-sm font-bold text-[#050B15] hover:bg-cyan-300 transition-colors shadow-[0_0_35px_rgba(34,211,238,0.35)]">
+          Book a Security Assessment <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+        <a href="#services" class="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-cyan-500/50 hover:bg-white/10 transition-colors">Explore Services</a>
+      </div>
+      <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-3">
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-400"><i data-lucide="check-circle-2" class="h-4 w-4 text-cyan-400 shrink-0"></i><span>ISO 27001:2022</span></div>
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-400"><i data-lucide="check-circle-2" class="h-4 w-4 text-cyan-400 shrink-0"></i><span>CERT-In Aligned</span></div>
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-400"><i data-lucide="check-circle-2" class="h-4 w-4 text-cyan-400 shrink-0"></i><span>CREST-Ready</span></div>
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-400"><i data-lucide="check-circle-2" class="h-4 w-4 text-cyan-400 shrink-0"></i><span>OSCP Team</span></div>
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-400"><i data-lucide="check-circle-2" class="h-4 w-4 text-cyan-400 shrink-0"></i><span>CISSP</span></div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 animate-fade-up animate-delay-200">
+      <div class="relative rounded-2xl border border-slate-800/80 bg-slate-900/60 backdrop-blur-xl p-6 shadow-2xl">
+        <div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent pointer-events-none"></div>
+
+        <div class="relative flex items-start justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-cyan-400/10 text-cyan-400 border border-cyan-400/20"><i data-lucide="shield-check" class="h-5 w-5"></i></span>
+            <div>
+              <p class="font-semibold text-white" style="font-family:'Manrope',sans-serif;">Threat Posture</p>
+              <p class="text-xs text-slate-400">Live snapshot · last 24h</p>
+            </div>
+          </div>
+          <span class="relative flex h-3 w-3">
+            <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+          </span>
+        </div>
+
+        <div class="relative mt-6 space-y-5">
+          <div>
+            <div class="flex items-center justify-between text-sm"><span class="text-slate-300">Critical findings remediated</span><span class="font-bold text-white" style="font-family:'Manrope',sans-serif;">28%</span></div>
+            <div class="mt-2 h-1.5 w-full rounded-full bg-slate-800 overflow-hidden"><div class="bar-animate h-full rounded-full bg-gradient-to-r from-cyan-500 to-cyan-300" style="width:28%"></div></div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between text-sm"><span class="text-slate-300">Cloud misconfigurations detected</span><span class="font-bold text-white" style="font-family:'Manrope',sans-serif;">71%</span></div>
+            <div class="mt-2 h-1.5 w-full rounded-full bg-slate-800 overflow-hidden"><div class="bar-animate h-full rounded-full bg-gradient-to-r from-cyan-500 to-cyan-300" style="width:71%"></div></div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between text-sm"><span class="text-slate-300">DPDP control coverage</span><span class="font-bold text-white" style="font-family:'Manrope',sans-serif;">92%</span></div>
+            <div class="mt-2 h-1.5 w-full rounded-full bg-slate-800 overflow-hidden"><div class="bar-animate h-full rounded-full bg-gradient-to-r from-cyan-500 to-cyan-300" style="width:92%"></div></div>
+          </div>
+        </div>
+
+        <div class="relative mt-6 grid grid-cols-3 gap-3">
+          <div class="rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-center hover:border-cyan-500/40 transition-colors">
+            <i data-lucide="shield" class="h-4 w-4 text-cyan-400 mx-auto"></i>
+            <p class="mt-2 text-[11px] font-semibold text-slate-200">Zero Trust</p>
+          </div>
+          <div class="rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-center hover:border-cyan-500/40 transition-colors">
+            <i data-lucide="server" class="h-4 w-4 text-cyan-400 mx-auto"></i>
+            <p class="mt-2 text-[11px] font-semibold text-slate-200">24×7 SOC</p>
+          </div>
+          <div class="rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-center hover:border-cyan-500/40 transition-colors">
+            <i data-lucide="swords" class="h-4 w-4 text-cyan-400 mx-auto"></i>
+            <p class="mt-2 text-[11px] font-semibold text-slate-200">Red Team</p>
+          </div>
+        </div>
+
+        <div class="relative mt-6 flex items-center justify-between rounded-lg border border-cyan-500/20 bg-cyan-400/5 px-4 py-3">
+          <span class="text-[10px] tracking-[0.2em] uppercase font-semibold text-cyan-300">Mean time to detect</span>
+          <span class="text-lg font-extrabold text-white" style="font-family:'Manrope',sans-serif;">4.2 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6">
+      <div class="rounded-xl border border-slate-800/70 bg-slate-900/30 p-5 hover:border-cyan-500/30 transition-colors"><p class="text-2xl sm:text-3xl font-extrabold text-white" style="font-family:'Manrope',sans-serif;">Pan-Global</p><p class="mt-1 text-xs tracking-wider uppercase text-slate-400 font-semibold">Coverage</p></div>
+      <div class="rounded-xl border border-slate-800/70 bg-slate-900/30 p-5 hover:border-cyan-500/30 transition-colors"><p class="text-2xl sm:text-3xl font-extrabold text-white" style="font-family:'Manrope',sans-serif;">24×7</p><p class="mt-1 text-xs tracking-wider uppercase text-slate-400 font-semibold">Managed SOC</p></div>
+      <div class="rounded-xl border border-slate-800/70 bg-slate-900/30 p-5 hover:border-cyan-500/30 transition-colors"><p class="text-2xl sm:text-3xl font-extrabold text-white" style="font-family:'Manrope',sans-serif;">5</p><p class="mt-1 text-xs tracking-wider uppercase text-slate-400 font-semibold">Focused Practices</p></div>
+      <div class="rounded-xl border border-slate-800/70 bg-slate-900/30 p-5 hover:border-cyan-500/30 transition-colors"><p class="text-2xl sm:text-3xl font-extrabold text-white" style="font-family:'Manrope',sans-serif;">B2B</p><p class="mt-1 text-xs tracking-wider uppercase text-slate-400 font-semibold">Enterprise Focus</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" class="relative py-20 lg:py-28 bg-[#050B15] border-t border-slate-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5">
+        <span class="text-xs tracking-[0.25em] uppercase font-semibold text-cyan-400">Why count on us</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]" style="font-family:'Manrope',sans-serif;">
+          A partner that operates like an <span class="text-cyan-400">extension</span> of your security team.
+        </h2>
+        <p class="mt-6 text-base sm:text-lg leading-relaxed text-slate-400">
+          Vanguard Citadel Sec blends deep technical practitioners with regulatory specialists — so security and compliance move forward together, not in parallel silos. From securing business-critical assets to defending real-world attacks, we work alongside your team to remediate risks with measurable impact.
+        </p>
+
+        <div class="mt-10 space-y-4">
+          <p class="text-xs tracking-[0.25em] uppercase font-semibold text-slate-500">Led by industry practitioners</p>
+          <div class="flex items-start gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-5 hover:border-cyan-500/30 transition-colors">
+            <div class="h-12 w-12 shrink-0 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/25 text-cyan-300 flex items-center justify-center font-bold text-base" style="font-family:'Manrope',sans-serif;">PJ</div>
+            <div>
+              <p class="font-semibold text-white" style="font-family:'Manrope',sans-serif;">Priyanka Joshi</p>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Drives strategy, client advisory and security consulting practice — partnering with CISOs and CIOs to build resilient security programs.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-5 hover:border-cyan-500/30 transition-colors">
+            <div class="h-12 w-12 shrink-0 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/25 text-cyan-300 flex items-center justify-center font-bold text-base" style="font-family:'Manrope',sans-serif;">AK</div>
+            <div>
+              <p class="font-semibold text-white" style="font-family:'Manrope',sans-serif;">Abhijeet Kulkarni</p>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Leads technical delivery across Cloud Security, SOC operations and offensive testing — with deep expertise in defensive engineering.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="grid sm:grid-cols-2 gap-4 lg:gap-6">
+          <div class="card-dark rounded-xl p-6">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400"><i data-lucide="swords" class="h-5 w-5"></i></span>
+            <h3 class="mt-5 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">Offensive-first DNA</h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">Our consultants are practitioners who break things for a living — so your business does not have to.</p>
+          </div>
+          <div class="card-dark rounded-xl p-6">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400"><i data-lucide="file-bar-chart" class="h-5 w-5"></i></span>
+            <h3 class="mt-5 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">Outcome-driven reports</h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">Risk-rated, repro-ready, evidence-backed reports an engineer can act on and an executive can defend.</p>
+          </div>
+          <div class="card-dark rounded-xl p-6">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400"><i data-lucide="layers" class="h-5 w-5"></i></span>
+            <h3 class="mt-5 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">Engineered for scale</h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">Proven across hyperscalers, regulated industries and complex hybrid estates spanning multiple geographies.</p>
+          </div>
+          <div class="card-dark rounded-xl p-6">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400"><i data-lucide="shield-check" class="h-5 w-5"></i></span>
+            <h3 class="mt-5 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">Privacy by design</h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">DPDP and GDPR specialists embedded with our offensive teams — security and privacy advised in lock-step.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section id="services" class="relative py-20 lg:py-28 bg-[#050B15] border-t border-slate-900">
+  <div aria-hidden class="absolute inset-0 bg-grid-dark opacity-20" style="mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-xs tracking-[0.25em] uppercase font-semibold text-cyan-400">What we do</span>
+      <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]" style="font-family:'Manrope',sans-serif;">Full-spectrum <span class="text-cyan-400">information security</span> services.</h2>
+      <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-400">From offensive assessments to regulatory consulting, our practitioners help you defend, detect and demonstrate — across every layer of your stack.</p>
+    </div>
+    <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+      <article class="group card-dark rounded-xl p-6 sm:p-7">
+        <div class="flex items-center justify-between">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 group-hover:bg-cyan-400/20 transition-colors"><i data-lucide="cloud" class="h-5 w-5"></i></span>
+          <span class="text-xs tracking-widest font-semibold text-slate-600" style="font-family:'Manrope',sans-serif;">01</span>
+        </div>
+        <h3 class="mt-6 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">Cloud Security</h3>
+        <p class="mt-3 text-sm text-slate-400 leading-relaxed">Security categorisation of cloud resources, controls assessment, CSPM, IAM review and network architecture audits across AWS, Azure and GCP.</p>
+        <div class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-cyan-400">Learn more <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></div>
+      </article>
+      <article class="group card-dark rounded-xl p-6 sm:p-7">
+        <div class="flex items-center justify-between">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 group-hover:bg-cyan-400/20 transition-colors"><i data-lucide="network" class="h-5 w-5"></i></span>
+          <span class="text-xs tracking-widest font-semibold text-slate-600" style="font-family:'Manrope',sans-serif;">02</span>
+        </div>
+        <h3 class="mt-6 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">Network Security</h3>
+        <p class="mt-3 text-sm text-slate-400 leading-relaxed">Identify weaknesses in perimeter, segmentation, Active Directory and wireless deployments through adversary-emulated testing.</p>
+        <div class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-cyan-400">Learn more <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></div>
+      </article>
+      <article class="group card-dark rounded-xl p-6 sm:p-7">
+        <div class="flex items-center justify-between">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 group-hover:bg-cyan-400/20 transition-colors"><i data-lucide="scroll-text" class="h-5 w-5"></i></span>
+          <span class="text-xs tracking-widest font-semibold text-slate-600" style="font-family:'Manrope',sans-serif;">03</span>
+        </div>
+        <h3 class="mt-6 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">Regulatory Compliance</h3>
+        <p class="mt-3 text-sm text-slate-400 leading-relaxed">Gap assessment, control design, implementation support and audit readiness for RBI, DPDP, ISO 27001, PCI-DSS, GDPR and HIPAA.</p>
+        <div class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-cyan-400">Learn more <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></div>
+      </article>
+      <article class="group card-dark rounded-xl p-6 sm:p-7">
+        <div class="flex items-center justify-between">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 group-hover:bg-cyan-400/20 transition-colors"><i data-lucide="shield-alert" class="h-5 w-5"></i></span>
+          <span class="text-xs tracking-widest font-semibold text-slate-600" style="font-family:'Manrope',sans-serif;">04</span>
+        </div>
+        <h3 class="mt-6 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">SOC as a Service</h3>
+        <p class="mt-3 text-sm text-slate-400 leading-relaxed">A 24×7 hybrid SOC combining people, process and modern SIEM/SOAR/XDR to deliver detection, threat hunting and incident response.</p>
+        <div class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-cyan-400">Learn more <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></div>
+      </article>
+      <article class="group card-dark rounded-xl p-6 sm:p-7">
+        <div class="flex items-center justify-between">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 group-hover:bg-cyan-400/20 transition-colors"><i data-lucide="eye" class="h-5 w-5"></i></span>
+          <span class="text-xs tracking-widest font-semibold text-slate-600" style="font-family:'Manrope',sans-serif;">05</span>
+        </div>
+        <h3 class="mt-6 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">Threat Intelligence</h3>
+        <p class="mt-3 text-sm text-slate-400 leading-relaxed">Curated, actionable intelligence on adversaries, leaked credentials and brand exposure across surface, deep and dark web.</p>
+        <div class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-cyan-400">Learn more <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== COMPLIANCE ========== -->
+<section id="compliance" class="relative py-20 lg:py-28 bg-[#050B15] border-t border-slate-900 overflow-hidden">
+  <div aria-hidden class="absolute inset-0 bg-radial-cyan-soft opacity-70"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-xs tracking-[0.25em] uppercase font-semibold text-cyan-400">Regulatory consulting</span>
+      <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]" style="font-family:'Manrope',sans-serif;">RBI, DPDP and every framework <span class="text-cyan-400">that matters.</span></h2>
+      <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-400">Whether you operate in BFSI, healthcare, payments or SaaS — we translate dense regulation into practical, auditable controls without slowing your business down.</p>
+    </div>
+    <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+      <div class="card-dark rounded-xl p-6">
+        <span class="inline-block rounded-md bg-cyan-400/10 border border-cyan-400/20 px-2.5 py-1 text-[11px] font-bold tracking-wider text-cyan-300">RBI</span>
+        <h3 class="mt-4 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">RBI Guidelines</h3>
+        <p class="mt-2 text-sm text-slate-400 leading-relaxed">Cyber security frameworks for banks, NBFCs, Payment Aggregators, Cooperative banks — including IT examination and master directions.</p>
+      </div>
+      <div class="card-dark rounded-xl p-6">
+        <span class="inline-block rounded-md bg-cyan-400/10 border border-cyan-400/20 px-2.5 py-1 text-[11px] font-bold tracking-wider text-cyan-300">DPDP</span>
+        <h3 class="mt-4 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">DPDP Act 2023</h3>
+        <p class="mt-2 text-sm text-slate-400 leading-relaxed">Digital Personal Data Protection Act readiness — consent, data principal rights, DPIA, breach notification and DPO advisory.</p>
+      </div>
+      <div class="card-dark rounded-xl p-6">
+        <span class="inline-block rounded-md bg-cyan-400/10 border border-cyan-400/20 px-2.5 py-1 text-[11px] font-bold tracking-wider text-cyan-300">ISO 27001</span>
+        <h3 class="mt-4 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">ISO 27001:2022</h3>
+        <p class="mt-2 text-sm text-slate-400 leading-relaxed">ISMS scoping, risk assessment, Annex A control implementation, internal audit and Stage 1 / Stage 2 certification support.</p>
+      </div>
+      <div class="card-dark rounded-xl p-6">
+        <span class="inline-block rounded-md bg-cyan-400/10 border border-cyan-400/20 px-2.5 py-1 text-[11px] font-bold tracking-wider text-cyan-300">PCI-DSS</span>
+        <h3 class="mt-4 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">PCI-DSS v4.0</h3>
+        <p class="mt-2 text-sm text-slate-400 leading-relaxed">Scope reduction, control implementation, ASV scanning, segmentation testing and QSA-ready evidence preparation.</p>
+      </div>
+      <div class="card-dark rounded-xl p-6">
+        <span class="inline-block rounded-md bg-cyan-400/10 border border-cyan-400/20 px-2.5 py-1 text-[11px] font-bold tracking-wider text-cyan-300">GDPR</span>
+        <h3 class="mt-4 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">GDPR</h3>
+        <p class="mt-2 text-sm text-slate-400 leading-relaxed">Data mapping, lawful basis assessment, ROPA, DPIA and EU representative advisory for cross-border processing.</p>
+      </div>
+      <div class="card-dark rounded-xl p-6">
+        <span class="inline-block rounded-md bg-cyan-400/10 border border-cyan-400/20 px-2.5 py-1 text-[11px] font-bold tracking-wider text-cyan-300">HIPAA</span>
+        <h3 class="mt-4 text-lg font-semibold text-white" style="font-family:'Manrope',sans-serif;">HIPAA / HITRUST</h3>
+        <p class="mt-2 text-sm text-slate-400 leading-relaxed">Privacy and security rule implementation for healthcare providers, payers and digital health businesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" class="relative py-20 lg:py-28 bg-[#050B15] border-t border-slate-900 overflow-hidden">
+  <div aria-hidden class="absolute inset-0 bg-radial-cyan opacity-60"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-5">
+      <span class="text-xs tracking-[0.25em] uppercase font-semibold text-cyan-400">Contact us</span>
+      <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]" style="font-family:'Manrope',sans-serif;">Ready to harden your <span class="text-cyan-400">security posture?</span></h2>
+      <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-400">Schedule a 30-minute discovery call with our principal consultants — walk away with a prioritised plan, no obligations.</p>
+
+      <div class="mt-10 space-y-4">
+        <div class="flex items-start gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-4 hover:border-cyan-500/30 transition-colors">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400"><i data-lucide="mail" class="h-5 w-5"></i></span>
+          <div>
+            <p class="text-xs tracking-wider uppercase text-slate-500 font-semibold">Email</p>
+            <a href="mailto:hello@vanguardcitadelsec.com" class="font-semibold text-white hover:text-cyan-400 transition-colors" style="font-family:'Manrope',sans-serif;">hello@vanguardcitadelsec.com</a>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-4 hover:border-cyan-500/30 transition-colors">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-cyan-400/10 border border-cyan-400/20 text-cyan-400"><i data-lucide="phone" class="h-5 w-5"></i></span>
+          <div>
+            <p class="text-xs tracking-wider uppercase text-slate-500 font-semibold">Phone</p>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-3 mt-0.5">
+              <a href="tel:+919637420583" class="font-semibold text-white hover:text-cyan-400 transition-colors" style="font-family:'Manrope',sans-serif;">+91 96374 20583</a>
+              <span class="hidden sm:inline text-slate-600">/</span>
+              <a href="tel:+918788196840" class="font-semibold text-white hover:text-cyan-400 transition-colors" style="font-family:'Manrope',sans-serif;">+91 87881 96840</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid grid-cols-2 gap-3">
+        <div class="rounded-xl border border-slate-800 bg-slate-900/30 p-4"><p class="text-xl font-extrabold text-white" style="font-family:'Manrope',sans-serif;">5</p><p class="text-[11px] tracking-wider uppercase text-slate-400 font-semibold mt-1">Specialized Services</p></div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900/30 p-4"><p class="text-xl font-extrabold text-white" style="font-family:'Manrope',sans-serif;">24×7</p><p class="text-[11px] tracking-wider uppercase text-slate-400 font-semibold mt-1">Managed SOC</p></div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900/30 p-4"><p class="text-xl font-extrabold text-white" style="font-family:'Manrope',sans-serif;">Pan-Global</p><p class="text-[11px] tracking-wider uppercase text-slate-400 font-semibold mt-1">Coverage</p></div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900/30 p-4"><p class="text-xl font-extrabold text-white" style="font-family:'Manrope',sans-serif;">B2B</p><p class="text-[11px] tracking-wider uppercase text-slate-400 font-semibold mt-1">Enterprise Focus</p></div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7">
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl p-6 sm:p-8 shadow-2xl">
+        <form id="contactForm" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="sm:col-span-2">
+            <label for="name" class="text-xs tracking-wider uppercase font-semibold text-slate-400">Full name</label>
+            <input id="name" name="name" placeholder="Jane Doe" required class="mt-1.5 w-full h-11 rounded-md border border-slate-800 bg-slate-900/60 px-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/40" />
+          </div>
+          <div>
+            <label for="email" class="text-xs tracking-wider uppercase font-semibold text-slate-400">Work email</label>
+            <input id="email" name="email" type="email" placeholder="jane@company.com" required class="mt-1.5 w-full h-11 rounded-md border border-slate-800 bg-slate-900/60 px-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/40" />
+          </div>
+          <div>
+            <label for="phone" class="text-xs tracking-wider uppercase font-semibold text-slate-400">Phone</label>
+            <input id="phone" name="phone" placeholder="+91 98xxxxxx00" required class="mt-1.5 w-full h-11 rounded-md border border-slate-800 bg-slate-900/60 px-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/40" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="company" class="text-xs tracking-wider uppercase font-semibold text-slate-400">Company</label>
+            <input id="company" name="company" placeholder="Company name" class="mt-1.5 w-full h-11 rounded-md border border-slate-800 bg-slate-900/60 px-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/40" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="message" class="text-xs tracking-wider uppercase font-semibold text-slate-400">How can we help?</label>
+            <textarea id="message" name="message" placeholder="Briefly describe your environment, goals or scope..." required class="mt-1.5 w-full min-h-[140px] rounded-md border border-slate-800 bg-slate-900/60 p-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/40 resize-y"></textarea>
+          </div>
+          <div class="sm:col-span-2 flex items-center justify-between gap-4 pt-2 flex-wrap">
+            <p class="text-xs text-slate-500 max-w-sm">By submitting, you agree to be contacted by Vanguard Citadel Sec about your enquiry.</p>
+            <button type="submit" class="inline-flex items-center gap-2 rounded-md bg-cyan-400 px-6 py-3 text-sm font-bold text-[#050B15] hover:bg-cyan-300 transition-colors shadow-[0_0_25px_rgba(34,211,238,0.35)]">
+              Send Enquiry <i data-lucide="send" class="h-4 w-4"></i>
+            </button>
+          </div>
+        </form>
+        <div id="contactSuccess" class="hidden flex-col items-center text-center py-12">
+          <span class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-400"><i data-lucide="check-circle-2" class="h-7 w-7"></i></span>
+          <h3 class="mt-6 text-2xl font-bold text-white" style="font-family:'Manrope',sans-serif;">Thank you for reaching out.</h3>
+          <p class="mt-3 text-slate-400 max-w-md">Our team will review your enquiry and contact you within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="relative bg-[#020610] border-t border-slate-900 text-slate-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-3">
+          <img src="https://customer-assets-m6fa6gv7.emergentagent.net/job_security-hub-151/artifacts/tc1fu0c7_logo.jpeg" alt="Vanguard Citadel Sec logo" class="h-11 w-11 rounded-full ring-1 ring-cyan-500/30" />
+          <div class="flex flex-col leading-tight">
+            <span class="font-extrabold tracking-tight text-white text-base" style="font-family:'Manrope',sans-serif;">Vanguard<span class="text-cyan-400">Citadel</span>Sec</span>
+            <span class="text-[10px] tracking-[0.25em] uppercase text-slate-500 font-semibold">Information Security</span>
+          </div>
+        </div>
+        <p class="mt-5 max-w-md text-sm leading-relaxed text-slate-500">A cybersecurity consulting firm helping enterprises secure business-critical assets through offensive and defensive security services, aligned with global regulatory frameworks.</p>
+        <div class="mt-6 flex items-center gap-3">
+          <a href="#" aria-label="LinkedIn" class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"><i data-lucide="linkedin" class="h-4 w-4"></i></a>
+          <a href="#" aria-label="Twitter" class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"><i data-lucide="twitter" class="h-4 w-4"></i></a>
+          <a href="mailto:hello@vanguardcitadelsec.com" aria-label="Email" class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"><i data-lucide="mail" class="h-4 w-4"></i></a>
+        </div>
+      </div>
+      <div class="md:col-span-3">
+        <p class="text-xs tracking-[0.25em] uppercase text-slate-500 font-semibold" style="font-family:'Manrope',sans-serif;">Navigate</p>
+        <ul class="mt-4 space-y-2">
+          <li><a href="#about" class="text-sm text-slate-400 hover:text-cyan-400 transition-colors">About</a></li>
+          <li><a href="#services" class="text-sm text-slate-400 hover:text-cyan-400 transition-colors">Services</a></li>
+          <li><a href="#compliance" class="text-sm text-slate-400 hover:text-cyan-400 transition-colors">Compliance</a></li>
+          <li><a href="#contact" class="text-sm text-slate-400 hover:text-cyan-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <p class="text-xs tracking-[0.25em] uppercase text-slate-500 font-semibold" style="font-family:'Manrope',sans-serif;">Services</p>
+        <ul class="mt-4 grid grid-cols-2 gap-2">
+          <li class="text-sm text-slate-400">Cloud Security</li>
+          <li class="text-sm text-slate-400">Network Security</li>
+          <li class="text-sm text-slate-400">Regulatory Compliance</li>
+          <li class="text-sm text-slate-400">SOC as a Service</li>
+          <li class="text-sm text-slate-400">Threat Intelligence</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-slate-500">© <span id="year"></span> Vanguard Citadel Sec. All rights reserved.</p>
+      <p class="text-xs text-slate-500">Designed for trust. Built for resilience.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const nav = document.getElementById('navbar');
+  const onScroll = () => {
+    if (window.scrollY > 16) {
+      nav.classList.remove('bg-[#050B15]/40', 'border-transparent');
+      nav.classList.add('bg-[#050B15]/85', 'border-slate-800/80');
+    } else {
+      nav.classList.add('bg-[#050B15]/40', 'border-transparent');
+      nav.classList.remove('bg-[#050B15]/85', 'border-slate-800/80');
+    }
+  };
+  window.addEventListener('scroll', onScroll);
+
+  const toggle = document.getElementById('mobileToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    const icon = toggle.querySelector('i');
+    icon.setAttribute('data-lucide', menu.classList.contains('hidden') ? 'menu' : 'x');
+    lucide.createIcons();
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.add('hidden');
+    const icon = toggle.querySelector('i');
+    icon.setAttribute('data-lucide', 'menu');
+    lucide.createIcons();
+  }));
+
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('contactSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.classList.add('hidden');
+    success.classList.remove('hidden');
+    success.classList.add('flex');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Vanguard Citadel Sec — Static HTML Exports
+
+Two standalone versions of the landing page as pure HTML + Tailwind (CDN) + Google Fonts + lucide icons.
+
+## Structure
+```
+exports/
+├── light-theme/          # v1 — Corporate light theme (navy + silver)
+│   └── index.html
+└── dark-theme/           # v2 — Dark theme adapted from vanguard-secure.emergent.host (navy + cyan)
+    └── index.html
+```
+
+## How to preview
+Just double-click either `index.html` — no server required. Both files load Tailwind, fonts, and icons over the internet.
+
+## Notes
+- The contact form is client-side only in these exports (shows a "Thank you" state on submit — no backend call). To wire it to a real backend later, replace the `handleSubmit` JS function.
+- All colors, fonts, layout and content match the deployed React app.
+- Ready to host as static HTML or drop into a WordPress custom page template.
