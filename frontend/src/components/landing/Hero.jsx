@@ -96,7 +96,7 @@ export default function Hero() {
                 className="flex items-center gap-2 text-xs sm:text-sm text-slate-400"
               >
                 <CheckCircle2 className="h-4 w-4 text-cyan-400 shrink-0" />
-                <span>{b}</span>
+                <span className="whitespace-nowrap">{b}</span>
               </div>
             ))}
           </div>
