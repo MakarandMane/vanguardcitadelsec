@@ -15,6 +15,16 @@ const COMPLIANCE = [
     desc: "ISMS scoping, risk assessment, Annex A control implementation, internal audit and Stage 1 / Stage 2 certification support.",
   },
   {
+    tag: "ISO 9001",
+    title: "ISO 9001:2015",
+    desc: "Quality management systems — process definition, documentation, internal audit and certification readiness across industries.",
+  },
+  {
+    tag: "PESO",
+    title: "PESO Compliance",
+    desc: "Advisory and implementation support for Petroleum and Explosives Safety Organisation cyber-physical requirements for hazardous facilities.",
+  },
+  {
     tag: "PCI-DSS",
     title: "PCI-DSS v4.0",
     desc: "Scope reduction, control implementation, ASV scanning, segmentation testing and QSA-ready evidence preparation.",

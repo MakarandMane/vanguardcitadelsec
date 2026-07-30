@@ -198,7 +198,7 @@
             <div class="h-12 w-12 shrink-0 rounded-lg bg-cyan-50 border border-cyan-200 text-cyan-700 flex items-center justify-center font-bold text-base" style="font-family:'Manrope',sans-serif;">AK</div>
             <div>
               <p class="font-semibold text-slate-900" style="font-family:'Manrope',sans-serif;">Abhijeet Kulkarni</p>
-              <p class="mt-2 text-sm text-slate-600 leading-relaxed">Leads technical delivery across Cloud Security, SOC operations and offensive testing — with deep expertise in defensive engineering.</p>
+              <p class="mt-1 text-xs tracking-[0.15em] uppercase font-semibold text-cyan-600">Programme Manager</p>
             </div>
           </div>
         </div>
@@ -466,6 +466,40 @@
     if (window.scrollY > 16) {
       nav.classList.remove('bg-[#050B15]/40', 'border-transparent');
       nav.classList.add('bg-[#050B15]/85', 'border-slate-800/80');
+    } else {
+      nav.classList.add('bg-[#050B15]/40', 'border-transparent');
+      nav.classList.remove('bg-[#050B15]/85', 'border-slate-800/80');
+    }
+  };
+  window.addEventListener('scroll', onScroll);
+
+  const toggle = document.getElementById('mobileToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    const icon = toggle.querySelector('i');
+    icon.setAttribute('data-lucide', menu.classList.contains('hidden') ? 'menu' : 'x');
+    lucide.createIcons();
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.add('hidden');
+    const icon = toggle.querySelector('i');
+    icon.setAttribute('data-lucide', 'menu');
+    lucide.createIcons();
+  }));
+
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('contactSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.classList.add('hidden');
+    success.classList.remove('hidden');
+    success.classList.add('flex');
+  });
+</script>
+</body>
+</html>
+sList.add('bg-[#050B15]/85', 'border-slate-800/80');
     } else {
       nav.classList.add('bg-[#050B15]/40', 'border-transparent');
       nav.classList.remove('bg-[#050B15]/85', 'border-slate-800/80');

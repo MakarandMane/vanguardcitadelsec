@@ -3,12 +3,14 @@ import { Swords, FileBarChart, Layers, ShieldCheck } from "lucide-react";
 const LEADERS = [
   {
     name: "Priyanka Joshi",
+    role: null,
     bio: "Drives strategy, client advisory and security consulting practice — partnering with CISOs and CIOs to build resilient security programs.",
     initials: "PJ",
   },
   {
     name: "Abhijeet Kulkarni",
-    bio: "Leads technical delivery across Cloud Security, SOC operations and offensive testing — with deep expertise in defensive engineering.",
+    role: "Programme Manager",
+    bio: null,
     initials: "AK",
   },
 ];
@@ -85,7 +87,14 @@ export default function About() {
                   </div>
                   <div>
                     <p className="font-heading font-semibold text-slate-900">{l.name}</p>
-                    <p className="mt-2 text-sm text-slate-600 leading-relaxed">{l.bio}</p>
+                    {l.role && (
+                      <p className="mt-1 text-xs tracking-[0.15em] uppercase font-semibold text-cyan-600">
+                        {l.role}
+                      </p>
+                    )}
+                    {l.bio && (
+                      <p className="mt-2 text-sm text-slate-600 leading-relaxed">{l.bio}</p>
+                    )}
                   </div>
                 </div>
               ))}
